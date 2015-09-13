@@ -1,4 +1,4 @@
-ship = MAV v4.0 Ascent Vehicle
+ship = MAV v4.0 Ascent Stage
 version = 1.0.4
 description = 
 type = VAB
@@ -254,8 +254,8 @@ PART
 		name = kOSProcessor
 		isEnabled = True
 		bootFile = boot.ks
-		diskSpace = 1000000000
-		baseDiskSpace = 1000000000
+		diskSpace = 10000000
+		baseDiskSpace = 10000000
 		baseModuleCost = 0
 		basePartMass = 4.788
 		additionalCost = 0
@@ -323,11 +323,43 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleDiminishingRTG
+		isEnabled = True
+		volume = 6.182956
+		efficiency = 0.06818182
+		fuelName = Plutonium238
+		fuelHalflife = 301.84
+		fuelIndex = 4
+		fuelPep = 5333.333
+		fuelDensity = 0.002668627
+		timeOfStart = -1
+		mass = 4.967346
+		EVENTS
+		{
+			nextFuelConfiguration
+			{
+				active = True
+				guiActive = False
+				guiActiveEditor = True
+				guiIcon = Next fuel type
+				guiName = Next fuel type
+				category = Next fuel type
+				guiActiveUnfocused = False
+				unfocusedRange = 2
+				externalToEVAOnly = True
+			}
+		}
+		ACTIONS
+		{
+		}
+	}
+	MODULE
+	{
 		name = ModuleFuelTanks
 		isEnabled = True
 		type = ServiceModule
 		utilization = 86
-		mass = 4.788
+		mass = 4.85
 		volume = 20000
 		type_UIEditor
 		{
@@ -1616,6 +1648,87 @@ PART
 	}
 	MODULE
 	{
+		name = ModuleEnviroSensor
+		isEnabled = True
+		sensorActive = False
+		EVENTS
+		{
+			Toggle
+			{
+				active = True
+				guiActive = True
+				guiIcon = Toggle Display
+				guiName = Toggle Display
+				category = Toggle Display
+				guiActiveUnfocused = False
+				unfocusedRange = 2
+				externalToEVAOnly = True
+			}
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+	}
+	MODULE
+	{
+		name = ModuleEnviroSensor
+		isEnabled = True
+		sensorActive = False
+		EVENTS
+		{
+			Toggle
+			{
+				active = True
+				guiActive = True
+				guiIcon = Toggle Display
+				guiName = Toggle Display
+				category = Toggle Display
+				guiActiveUnfocused = False
+				unfocusedRange = 2
+				externalToEVAOnly = True
+			}
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+	}
+	MODULE
+	{
+		name = ModuleEnviroSensor
+		isEnabled = True
+		sensorActive = False
+		EVENTS
+		{
+			Toggle
+			{
+				active = True
+				guiActive = True
+				guiIcon = Toggle Display
+				guiName = Toggle Display
+				category = Toggle Display
+				guiActiveUnfocused = False
+				unfocusedRange = 2
+				externalToEVAOnly = True
+			}
+		}
+		ACTIONS
+		{
+			ToggleAction
+			{
+				actionGroup = None
+			}
+		}
+	}
+	MODULE
+	{
 		name = BBModule
 		isEnabled = True
 		EVENTS
@@ -2533,6 +2646,16 @@ PART
 	}
 	RESOURCE
 	{
+		name = Plutonium238
+		amount = 6.18295557
+		maxAmount = 6.18295557
+		flowState = True
+		isTweakable = False
+		hideFlow = False
+		flowMode = Both
+	}
+	RESOURCE
+	{
 		name = Oxygen
 		amount = 100
 		maxAmount = 100
@@ -2646,8 +2769,8 @@ PART
 	symMethod = Radial
 	istg = 0
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 1
+	sqor = 0
 	sepI = 1
 	attm = 1
 	modCost = 0
@@ -3037,8 +3160,8 @@ PART
 	symMethod = Radial
 	istg = 0
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 2
+	sqor = 0
 	sepI = 1
 	attm = 1
 	modCost = 0
@@ -3428,8 +3551,8 @@ PART
 	symMethod = Radial
 	istg = 0
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 3
+	sqor = 0
 	sepI = 1
 	attm = 1
 	modCost = 0
@@ -3819,8 +3942,8 @@ PART
 	symMethod = Radial
 	istg = 0
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 4
+	sqor = 0
 	sepI = 1
 	attm = 1
 	modCost = 0
@@ -4210,8 +4333,8 @@ PART
 	symMethod = Radial
 	istg = 0
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 0
+	sqor = 0
 	sepI = 1
 	attm = 0
 	modCost = 0
@@ -4588,7 +4711,7 @@ PART
 {
 	part = vernierEngine_4293841902
 	partName = Part
-	pos = -2.73,14.9,0
+	pos = -2.73,14.89,0
 	attPos = -0.1777139,0.1133547,0
 	attPos0 = -2.73,-0.1993504,0
 	rot = 0,0,0.587787,0.8090158
@@ -4818,7 +4941,7 @@ PART
 {
 	part = vernierEngine_4293841598
 	partName = Part
-	pos = 0,14.9,2.73
+	pos = 0,14.89,2.73
 	attPos = 0,0.1133547,0.1777139
 	attPos0 = 0,-0.1993504,2.73
 	rot = 0.4156296,0.5720595,0.4156296,0.5720595
@@ -5048,7 +5171,7 @@ PART
 {
 	part = vernierEngine_4293841540
 	partName = Part
-	pos = 2.73,14.9,0
+	pos = 2.73,14.89,0
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = 2.73,-0.1993504,0
 	rot = 0.587787,0.8090158,0,0
@@ -5278,7 +5401,7 @@ PART
 {
 	part = vernierEngine_4293841482
 	partName = Part
-	pos = 0,14.9,-2.73
+	pos = 0,14.89,-2.73
 	attPos = 0,0.1133547,-0.1777139
 	attPos0 = 0,-0.1993504,-2.73
 	rot = 0.4156296,0.5720595,-0.4156296,-0.5720595
@@ -5508,11 +5631,11 @@ PART
 {
 	part = vernierEngine_4293714926
 	partName = Part
-	pos = 2.7196,14.9,0.2379
+	pos = -0.23559,14.9,2.7196
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = 2.7196,-0.1728163,0.2379
-	rot = 0.578665,0.8143981,0.02526505,0.03555739
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = 0.4437054,0.4675647,0.3723131,0.6677513
+	attRot = -1.434978E-08,0.1305261,-4.955564E-08,-0.991445
 	attRot0 = 0.578665,0.8143981,0.02526505,0.03555739
 	mir = 1,1,1
 	symMethod = Radial
@@ -5738,11 +5861,11 @@ PART
 {
 	part = vernierEngine_4293714248
 	partName = Part
-	pos = 0.2355902,14.9,-2.7196
+	pos = 2.7196,14.9,0.2355896
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = 0.2355902,-0.1728163,-2.7196
-	rot = 0.427043,0.6010093,-0.3913128,-0.5507236
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = 0.5770122,0.8027896,-0.05048203,0.1415533
+	attRot = -1.434978E-08,0.1305261,-4.955564E-08,-0.991445
 	attRot0 = 0.427043,0.6010093,-0.3913128,-0.5507236
 	mir = 1,1,1
 	symMethod = Radial
@@ -5971,8 +6094,8 @@ PART
 	pos = -2.7196,14.9,-0.2355898
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = -2.7196,-0.1728163,-0.2355898
-	rot = 0.02526502,0.03555735,-0.578665,-0.8143981
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = 0.05048201,-0.1415533,0.5770122,0.8027896
+	attRot = -1.434978E-08,0.1305261,-4.955564E-08,-0.991445
 	attRot0 = 0.02526502,0.03555735,-0.578665,-0.8143981
 	mir = 1,1,1
 	symMethod = Radial
@@ -6198,11 +6321,11 @@ PART
 {
 	part = vernierEngine_4293714108
 	partName = Part
-	pos = -0.2355899,14.9,2.7196
+	pos = 0.2355896,14.9,-2.7196
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = -0.2355899,-0.1728163,2.7196
-	rot = -0.3913128,-0.5507236,-0.427043,-0.6010093
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = 0.3723131,0.6677513,-0.4437054,-0.4675647
+	attRot = -1.434978E-08,0.1305261,-4.955564E-08,-0.991445
 	attRot0 = -0.3913128,-0.5507236,-0.427043,-0.6010093
 	mir = 1,1,1
 	symMethod = Radial
@@ -6428,11 +6551,11 @@ PART
 {
 	part = vernierEngine_4293710706
 	partName = Part
-	pos = 2.7196,14.9,-0.2379
+	pos = 0.2378998,14.9,2.7196
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = 2.7196,-0.1708565,-0.2379
-	rot = 0.5902447,0.8060451,-0.02577063,-0.03519267
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = -0.3797635,-0.6609025,-0.4525844,-0.4627689
+	attRot = -1.768642E-08,0.1305262,4.783996E-08,0.991445
 	attRot0 = 0.5902447,0.8060451,-0.02577063,-0.03519267
 	mir = 1,1,1
 	symMethod = Radial
@@ -6658,11 +6781,11 @@ PART
 {
 	part = vernierEngine_4293710626
 	partName = Part
-	pos = -0.2379,14.9,-2.7196
+	pos = 2.7196,14.9,-0.2379002
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = -0.2379,-0.1708565,-2.7196
-	rot = 0.3991434,0.5450749,-0.4355886,-0.5948449
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = -0.5885589,-0.7945556,-0.05149219,0.1401017
+	attRot = -1.768642E-08,0.1305262,4.783996E-08,0.991445
 	attRot0 = 0.3991434,0.5450749,-0.4355886,-0.5948449
 	mir = 1,1,1
 	symMethod = Radial
@@ -6891,8 +7014,8 @@ PART
 	pos = -2.7196,14.9,0.2379
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = -2.7196,-0.1708565,0.2379
-	rot = -0.02577066,-0.03519271,-0.5902447,-0.8060451
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = 0.05149222,-0.1401016,-0.5885589,-0.7945556
+	attRot = -1.768642E-08,0.1305262,4.783996E-08,0.991445
 	attRot0 = -0.02577066,-0.03519271,-0.5902447,-0.8060451
 	mir = 1,1,1
 	symMethod = Radial
@@ -7118,11 +7241,11 @@ PART
 {
 	part = vernierEngine_4293710486
 	partName = Part
-	pos = 0.2379,14.9,2.7196
+	pos = -0.2379002,14.9,-2.7196
 	attPos = 0.1777139,0.1133547,0
 	attPos0 = 0.2379,-0.1708565,2.7196
-	rot = -0.4355886,-0.5948449,-0.3991434,-0.5450749
-	attRot = 0,0,-0.0668485,0.9977632
+	rot = -0.4525844,-0.4627689,0.3797635,0.6609025
+	attRot = -1.768642E-08,0.1305262,4.783996E-08,0.991445
 	attRot0 = -0.4355886,-0.5948449,-0.3991434,-0.5450749
 	mir = 1,1,1
 	symMethod = Radial
@@ -7378,9 +7501,9 @@ PART
 	PARTDATA
 	{
 		tgt = 4293906832
-		pos = -0.87681,-0.4241103,-0.5246933
-		rot = 4.385958E-09,5.584811E-07,0.7984385,0.6020769
-		dir = -0.7925386,-0.3833485,-0.4742643
+		pos = -0.8768101,-0.4241097,-0.524693
+		rot = -1.580061E-08,5.779011E-07,0.7984388,0.6020772
+		dir = -0.7925389,-0.383348,-0.4742641
 	}
 	MODULE
 	{
@@ -7551,9 +7674,9 @@ PART
 	PARTDATA
 	{
 		tgt = 4293906832
-		pos = -0.87681,-0.4241101,-0.5246934
-		rot = -5.848086E-09,-3.191819E-08,0.7984384,0.6020768
-		dir = -0.7925386,-0.3833483,-0.4742644
+		pos = -0.8768101,-0.4241096,-0.5246943
+		rot = -5.275607E-10,-3.522542E-08,0.7984387,0.602077
+		dir = -0.7925384,-0.3833477,-0.4742651
 	}
 	MODULE
 	{
@@ -7897,9 +8020,9 @@ PART
 	PARTDATA
 	{
 		tgt = 4293906832
-		pos = -0.8768111,-0.4241103,-0.5246936
-		rot = -7.74007E-09,1.239289E-07,0.7984385,0.6020766
-		dir = -0.7925388,-0.3833481,-0.4742641
+		pos = -0.876811,-0.4241107,-0.5246939
+		rot = 8.846914E-09,1.100504E-07,0.7984388,0.6020769
+		dir = -0.7925386,-0.3833484,-0.4742643
 	}
 	MODULE
 	{
@@ -8070,9 +8193,9 @@ PART
 	PARTDATA
 	{
 		tgt = 4293906832
-		pos = -0.8776762,-0.4157532,0.5377408
+		pos = -0.8776762,-0.4157531,0.5377408
 		rot = -2.104486E-08,3.00824E-07,0.7984387,0.6020764
-		dir = -0.790625,-0.3745173,0.4844057
+		dir = -0.790625,-0.3745171,0.4844057
 	}
 	MODULE
 	{
@@ -8243,9 +8366,9 @@ PART
 	PARTDATA
 	{
 		tgt = 4293906832
-		pos = -0.877679,-0.4157544,0.5377432
+		pos = -0.877679,-0.4157544,0.5377434
 		rot = -5.528854E-09,4.143151E-08,0.7984386,0.6020764
-		dir = -0.7906249,-0.3745171,0.4844061
+		dir = -0.7906248,-0.374517,0.4844063
 	}
 	MODULE
 	{
@@ -10805,7 +10928,7 @@ PART
 	pos = 1.135644E-07,16.95668,-1.211098
 	attPos = 5.072899E-09,-0.05216408,0.02989984
 	attPos0 = 1.084915E-07,2.008842,-1.240998
-	rot = -2.187846E-15,-0.7071068,-0.7071069,4.371139E-08
+	rot = -2.187846E-15,-0.7071068,-0.7071068,4.371138E-08
 	attRot = 0.4172252,-6.173779E-08,-6.039637E-08,-0.9088032
 	attRot0 = -1.728896E-08,0.9376436,0.3475982,4.663684E-08
 	mir = 1,1,1
@@ -11052,13 +11175,13 @@ PART
 	attRot0 = -1.053671E-08,0,-0.347598,0.9376436
 	mir = 1,1,1
 	symMethod = Radial
-	istg = 0
+	istg = 1
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 0
+	sqor = 1
 	sepI = 1
 	attm = 1
-	modCost = 53
+	modCost = 56.5
 	modMass = 0
 	modSize = (0.0, 0.0, 0.0)
 	sym = NP.chute.Radialparachute2_4293532712
@@ -11352,7 +11475,7 @@ PART
 		}
 		PARACHUTE
 		{
-			material = Nylon
+			material = Kevlar
 			preDeployedDiameter = 1
 			deployedDiameter = 30
 			minIsPressure = True
@@ -11361,7 +11484,7 @@ PART
 			minPressure = 0.01
 			deploymentAlt = 700
 			cutAlt = -1
-			preDeploymentSpeed = 3
+			preDeploymentSpeed = 2
 			deploymentSpeed = 6
 			time = 0
 			parachuteName = Canopy
@@ -11429,9 +11552,9 @@ PART
 			modelID = 0
 			typeID = 0
 			lastTypeID = 0
-			position = (0.8, 18.1, 8.9)
+			position = (-1.3, 17.0, 0.0)
 			isPressure = True
-			calcSelect = True
+			calcSelect = False
 			getMass = True
 			useDry = True
 			preDepDiam = 1
@@ -11444,7 +11567,7 @@ PART
 			chuteCount = 1
 			deploymentAlt = 700
 			cutAlt = 
-			preDepSpeed = 3
+			preDepSpeed = 2
 			depSpeed = 6
 		}
 	}
@@ -11476,13 +11599,13 @@ PART
 	attRot0 = -0.347598,0.9376436,2.57307E-08,-4.098571E-08
 	mir = 1,1,1
 	symMethod = Radial
-	istg = 0
+	istg = 1
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 1
+	sqor = 1
 	sepI = 1
 	attm = 1
-	modCost = 53
+	modCost = 56.5
 	modMass = 0
 	modSize = (0.0, 0.0, 0.0)
 	sym = NP.chute.Radialparachute2_4293532890
@@ -11776,7 +11899,7 @@ PART
 		}
 		PARACHUTE
 		{
-			material = Nylon
+			material = Kevlar
 			preDeployedDiameter = 1
 			deployedDiameter = 30
 			minIsPressure = True
@@ -11785,7 +11908,7 @@ PART
 			minPressure = 0.01
 			deploymentAlt = 700
 			cutAlt = -1
-			preDeploymentSpeed = 3
+			preDeploymentSpeed = 2
 			deploymentSpeed = 6
 			time = 0
 			parachuteName = Canopy
@@ -11853,9 +11976,9 @@ PART
 			modelID = 0
 			typeID = 0
 			lastTypeID = 0
-			position = (1.3, 16.9, 0.0)
+			position = (1.3, 17.0, 0.0)
 			isPressure = True
-			calcSelect = True
+			calcSelect = False
 			getMass = True
 			useDry = True
 			preDepDiam = 1
@@ -11868,7 +11991,7 @@ PART
 			chuteCount = 1
 			deploymentAlt = 700
 			cutAlt = 
-			preDepSpeed = 3
+			preDepSpeed = 2
 			depSpeed = 6
 		}
 	}
@@ -11892,18 +12015,18 @@ PART
 {
 	part = KSPtMballute_4293532266
 	partName = Part
-	pos = 1.171215E-07,16.67849,-1.346485
-	attPos = -5.019388E-09,-0.05489349,0.06386173
+	pos = 9.941574E-08,16.76041,-1.276073
+	attPos = -2.272516E-08,0.02702546,0.1342731
 	attPos0 = 1.221409E-07,1.733381,-1.410346
 	rot = 0.6630141,0.6630142,0.2457891,-0.245789
 	attRot = 0,0,0.7071067,0.7071067
 	attRot0 = 0.6630141,0.6630142,0.2457891,-0.245789
 	mir = 1,1,1
 	symMethod = Radial
-	istg = 0
+	istg = 2
 	dstg = 0
-	sidx = -1
-	sqor = -1
+	sidx = 0
+	sqor = 2
 	sepI = 1
 	attm = 1
 	modCost = 0
